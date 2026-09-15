@@ -45,7 +45,7 @@ wheels = [
 ]
 
 [[package]]
-name = "blank-app-template"
+name = "HK_Horse_Analysis"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

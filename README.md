@@ -1,25 +1,11 @@
-# 🎈 Blank app template
+# 🎈 香港賽馬馬匹查詢及分析系統 2025/26
 
-A simple Streamlit app template for you to modify!
+2025/26年度香港賽馬賽果紀錄及簡單分析系統 (DeepSeek coded)
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+資料來源：2025/26 賽季香港賽馬結果(hkjc_results_25_26.xlsx)
 
-### How to run it on your own machine
+馬匹查詢方式 : 支援直輸入烙號(如 J266)或下拉欄從清單選擇
 
-Prerequisite: install `uv` if you don't already have it.
+輸入烙號後系統自動顯示馬匹2025/26季度賽果及提供簡單分析
 
-```
-$ curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-1. Sync the dependencies
-
-   ```
-   $ uv sync
-   ```
-
-2. Run the app
-
-   ```
-   $ uv run streamlit run streamlit_app.py
    ```

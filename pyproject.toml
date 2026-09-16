@@ -1,7 +1,7 @@
 [project]
-name = "blank-app-template"
+name = "HK-Horse-Analysis"
 version = "0.1.0"
-description = "A simple Streamlit app template."
+description = "A simple Analysis app for HKJC."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [

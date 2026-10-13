@@ -1,17 +1,19 @@
-# A first workflow to play around with the editor
 name: My First Workflow
 on: 
   push:
     branches: 
       - main
-  workflow_dispatch:
+  workflow_dispatch: # 允許手動觸發
 jobs:
   first_job:
-    name: My first job
     runs-on:  ubuntu-latest
+    
     steps: 
-      -run: echo "Hello world 👋 from ${{ github.actor }}."
+      - name: Hello_world
+        run: echo "Hello world 👋 from ${{ github.actor }}."
       
-- name: Checkout
-uses: actions/checkout@v4.4.0
-- run: tree
+      - name: Checkout repository
+        uses: actions/checkout@v4.4.0
+        with:
+          fetch-depth: 0
+          run: tree

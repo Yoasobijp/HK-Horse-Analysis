@@ -10,7 +10,9 @@ jobs:
     
     steps: 
       - name: Hello_world
-        run: echo "Hello world 👋 from ${{ github.actor }}."
+        run: |
+          echo "Hello ${{vars.WHO_WILL_USE}} 👋 from ${{ github.actor }}."
+          echo "My secret is 🤔 ${{ secrets.JP_SECRET }}."
       
       - name: Checkout repository
         uses: actions/checkout@v4.4.0

@@ -1,4 +1,4 @@
-name: My First Workflow
+name: HKJC_scraper
 on: 
   push:
     branches: 

@@ -4,15 +4,19 @@ on:
     branches: 
       - main
   workflow_dispatch: # 允許手動觸發
+  
 jobs:
   update-data:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
+      pull-requests: write
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4.4.0
+        with:
+          fetch-depth: 0
         
       - name: Setup Python
         uses: actions/setup-python@v6.0.0
@@ -22,7 +26,14 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirement.txt
 
       - name: Run race day scraper
         run: python hkjc_results_scraper.py --season 26_27 --min-delay 2 --max-delay 4 --output hkjc_results_26_27.xlsx --db hkjc_results.sqlite
+      
+      - name: Commit and Push Changes
+        run: |
+          git add .
+          git commit
+          gh pr create --fill
+          gh pr merge -m --auto

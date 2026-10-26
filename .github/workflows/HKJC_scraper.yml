@@ -29,7 +29,7 @@ jobs:
           pip install -r requirement.txt
 
       - name: Run race day scraper
-        run: python hkjc_results_scraper.py --season 26_27 --min-delay 2 --max-delay 4 --output hkjc_results_26_27.xlsx --db hkjc_results.sqlite
+        run: python hkjc_results_scraper.py --season 26_27 --min-delay 2 --max-delay 4 --output hkjc_results_25_27.xlsx --db hkjc_results.sqlite
               
       - name: Commit and push if changed
         run: |

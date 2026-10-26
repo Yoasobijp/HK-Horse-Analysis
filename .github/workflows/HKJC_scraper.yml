@@ -32,6 +32,14 @@ jobs:
 #          # run: python hkjc_results_scraper.py --season 26_27 --min-delay 2 --max-delay 4 --output hkjc_results_26_27.xlsx --db hkjc_results.sqlite
         run: python hkjc_results_scraper.py --season 25_26 --only-date 07/09/2025 --max-races 1 --min-delay 8 --max-delay 20 --output hkjc_test.xlsx --db hkjc_test.sqlite
         
-
-#          path: "*.xlsx"
-#          retention-days: 1
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          if git diff --cached --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "chore(data): daily HKJC snapshot $(date -u +%F)"
+            git push
+          fi        

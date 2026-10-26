@@ -21,9 +21,9 @@ st.title("🐎 香港賽馬馬匹查詢及分析系統")
 st.caption("資料來源：2025/26 賽季香港賽馬結果")
 
 try:
-    df = load_data("hkjc_results_25_26.xlsx")
+    df = load_data("hkjc_results_25_27.xlsx")
 except FileNotFoundError:
-    st.error("找不到 hkjc_results_25_26.xlsx，請確認檔案位於同一目錄下。")
+    st.error("找不到 hkjc_results_25_27.xlsx，請確認檔案位於同一目錄下。")
     st.stop()
 
 horses = get_horse_list(df)

@@ -34,8 +34,7 @@ jobs:
         
       - name: Commit and push if changed
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
           git add .
           if git diff --cached --quiet; then
             echo "No data changes"

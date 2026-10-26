@@ -14,14 +14,14 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4.4.0
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
         
       - name: Setup Python
-        uses: actions/setup-python@v6.0.0
+        uses: actions/setup-python@v7
         with:
-          python-version: '3.12'
+          python-version: '3.13'
           
       - name: Install dependencies
         run: |
@@ -29,7 +29,7 @@ jobs:
           pip install -r requirement.txt
 
       - name: Run race day scraper
-          # run: python hkjc_results_scraper.py --season 26_27 --min-delay 2 --max-delay 4 --output hkjc_results_26_27.xlsx --db hkjc_results.sqlite
+#          # run: python hkjc_results_scraper.py --season 26_27 --min-delay 2 --max-delay 4 --output hkjc_results_26_27.xlsx --db hkjc_results.sqlite
         run: python hkjc_results_scraper.py --season 25_26 --only-date 07/09/2025 --max-races 1 --min-delay 8 --max-delay 20 --output hkjc_test.xlsx --db hkjc_test.sqlite
         
       - name: Commit and push if changed

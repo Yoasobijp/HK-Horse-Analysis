@@ -3,7 +3,7 @@ on:
   schedule:
     # 每週三及週日香港時間 12:00 執行 (UTC 04:00)
     # 賽馬日開賽前下載，此時數據最完整
-    - cron: '00 04 * * 3,7'
+    - cron: '00 4 * * 3,0'
   workflow_dispatch:  # allow manual trigger from GitHub Actions UI
 
 jobs:

@@ -88,7 +88,7 @@ def main() -> int:
 
     ymd = target_date.strftime("%Y%m%d")
     output_dir = Path(args.output_dir)
-    output_file = output_dir / f"{ymd}_starter_all_chi.pdf"
+    output_file = f"{ymd}_starter_all_chi.pdf"
 
     try:
         page_bytes, _ = get_bytes(PAGE_URL, args.timeout)

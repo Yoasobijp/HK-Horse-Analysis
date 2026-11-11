@@ -30,10 +30,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/
+          git add Data/
           if git diff --cached --quiet; then
             echo "No data changes"
           else
-            git commit -m "chore(data): daily HKJC snapshot $(date -u +%F)"
+            git commit -m "chore(data): HKJC racecard download $(date -u +%F)"
             git push
           fi        

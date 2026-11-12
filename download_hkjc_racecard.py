@@ -71,7 +71,7 @@ def main() -> int:
         description="從香港賽馬會排位頁下載指定日期的所有賽事出賽馬匹及往績 PDF。"
     )
     parser.add_argument("--date", help="賽事日期，格式 YYYYMMDD；預設為香港今天")
-    parser.add_argument("--output-dir", default="/DATA", help="保存目錄（預設：/DATA）")
+    parser.add_argument("--output-dir", default=" ", help="保存目錄（預設：/DATA）")
     parser.add_argument("--force", action="store_true", help="覆寫已存在的同名檔案")
     parser.add_argument("--timeout", type=int, default=30, help="每次網路請求逾時秒數（預設：30）")
     args = parser.parse_args()
@@ -125,25 +125,25 @@ def main() -> int:
         )
         return 3
 
-    try:
-        output_dir.mkdir(parents=True, exist_ok=True)
+#    try:
+#        output_dir.mkdir(parents=True, exist_ok=True)
         # 先寫入同一目錄的暫存檔，再原子替換，避免留下不完整的 PDF。
-        fd, temp_name = tempfile.mkstemp(prefix=f".{ymd}_", suffix=".tmp", dir=output_dir)
-        try:
-            with os.fdopen(fd, "wb") as temp_file:
-                temp_file.write(pdf_bytes)
-                temp_file.flush()
-                os.fsync(temp_file.fileno())
-            os.replace(temp_name, output_file)
-        finally:
-            if os.path.exists(temp_name):
-                os.unlink(temp_name)
-    except OSError as exc:
-        print(f"無法寫入 {output_file}：{exc}", file=sys.stderr)
-        return 1
+#        fd, temp_name = tempfile.mkstemp(prefix=f".{ymd}_", suffix=".tmp", dir=output_dir)
+#        try:
+#            with os.fdopen(fd, "wb") as temp_file:
+#                temp_file.write(pdf_bytes)
+#                temp_file.flush()
+#                os.fsync(temp_file.fileno())
+#            os.replace(temp_name, output_file)
+#        finally:
+#            if os.path.exists(temp_name):
+#                os.unlink(temp_name)
+#    except OSError as exc:
+#        print(f"無法寫入 {output_file}：{exc}", file=sys.stderr)
+#        return 1
 
-    print(f"下載完成：{output_file}（{len(pdf_bytes):,} bytes）")
-    return 0
+#    print(f"下載完成：{output_file}（{len(pdf_bytes):,} bytes）")
+#    return 0
 
 
 if __name__ == "__main__":
